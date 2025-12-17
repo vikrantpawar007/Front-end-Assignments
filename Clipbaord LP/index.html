@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard</title>
+<style>
+    .topimg{
+        position: absolute;
+        width: 100vw;
+        z-index: -1;
+        top: 0%;
+        opacity: 75%;
+    }
+
+    .logo{
+        width: 110px;
+        display: flex;
+        margin: auto;
+        margin-top: 100px;
+    }
+
+    body{
+        margin: 0;
+        background-size: cover;
+        overflow-x: hidden;
+
+    }
+
+    h1{
+        margin-top: 50px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 38px;
+        text-align: center;
+        color: hsl(210, 10%, 33%);
+    }
+
+    h2{
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        color: hsl(210, 10%, 33%);
+    }
+
+    h3{
+        margin-top: 35px;
+        margin-bottom: 0px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 26px;
+        color: hsl(210, 10%, 33%);
+    }
+
+    p{
+        max-width: 620px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 18px;
+        text-align: center;
+        color: hsl(201, 11%, 66%);
+        margin: 1px auto;
+        padding: 0px 20px;
+    }
+
+    @media (max-width:768px){
+        h1{
+        margin-top: 50px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        color: hsl(210, 10%, 33%);
+    }
+
+    h2{
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 24px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        color: hsl(210, 10%, 33%);
+    }
+
+    h3{
+        margin-top: 35px;
+        margin-bottom: 0px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 18px;
+        color: hsl(210, 10%, 33%);
+    }
+
+    p{
+        max-width: 620px;
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 15px;
+        text-align: center;
+        color: hsl(201, 11%, 66%);
+        margin: 1px auto;
+        padding: 0px 20px;
+    }
+    
+    }
+
+    div.cta-buttons{
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 40px auto;
+        flex-wrap: wrap;
+
+    }
+
+    .b1{
+        padding: 15px 30px;
+        border-radius: 25px;
+        background-color:hsl(171, 66%, 44%);
+        font-size: 18px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .b2{
+        padding: 15px 30px;
+        border-radius: 25px;
+        background-color:hsl(233, 100%, 69%);
+        font-size: 18px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .features{
+        max-width: 1200px;
+        height: auto;
+        display: flex;
+        gap: 90px;
+        margin: 90px auto;
+        overflow-x: hidden;
+        margin-left: -20px;
+    }
+
+    @media (max-width:768px){
+        .features{
+            flex-direction: column;
+            text-align: center;
+            padding: 0px 10px;
+            overflow-x: hidden;
+            margin-left: 15px;
+            margin-bottom: 0%;
+            gap: 20px;
+        }
+
+        .features_img{
+            margin-left: 20px;
+            margin-bottom: 18px;
+        }
+
+        .features_content{
+            text-align: center;
+            padding-top: 0px !important;
+            margin-left: -5px;
+        }
+
+        .p1{
+            text-align: center !important;
+        }
+    }
+
+    .features_img img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-left: -20px;
+    }
+
+    .features_content{
+        flex: 1;
+        padding-top: 30px;
+        line-height: 30px;
+    }
+
+    .p1{
+        text-align: left;
+        padding: 0px;
+    }
+
+    div.devices{
+        display: grid;
+        align-items: center;
+        margin: 90px auto;
+        gap: 15px;
+    }
+
+    @media (max-width: 768px) {
+        div.devices{
+        margin: 90px 10px;
+        gap: 15px;
+    }
+        
+    }
+
+    .tools{
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        margin: 45px 100px;
+        margin-bottom: 150px;
+        
+    }
+
+    @media (max-width:768px){
+        .tools{
+            grid-template-columns: 1fr;
+            gap: 45px;
+            margin: 90px 0px;
+        }
+    }
+
+    .tool1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        gap: 15px;
+        line-height: 35px;
+    }
+
+    .partners{
+        display: flex;
+        max-width: 100%;
+        justify-content: space-evenly;
+        margin: 45px 100px;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width:768px){
+        .partners{
+            margin: 45px 20px;
+        }
+    }
+
+   .partnercompany{
+        padding: 15px 30px;
+   }
+
+    .footer{
+        display: flex;
+        background-color: hsl(0, 0%, 93%);
+        padding: 40px 100px;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 35px;
+        flex-wrap: wrap;
+    }
+
+    .link{
+        list-style: none;
+        font-family: 'Bai Jamjuree', sans-serif;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        grid-auto-flow: column;
+        column-gap: 100px;
+        row-gap: 15px;
+        color: hsl(210, 10%, 33%); 
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    @media (max-width:768px) {
+        .footer{
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        }
+        .link{
+            display: block;
+            align-items: center;
+            padding: 0;
+            margin: 0%;
+        }
+        .li{
+            margin: 20px;
+        }
+        .socialicons{
+            justify-content: center;
+        }
+    }
+
+    .li:hover{
+            color: hsl(171, 66%, 44%);
+            cursor: pointer;
+        }
+
+    .cta-container{
+        margin: 150px auto;
+        gap: 15px;
+
+    }
+
+    .socialicons{
+        display: flex; 
+        gap: 40px;
+    }
+    .img-fluid{
+        width: 100%;
+        height: auto;
+    }
+
+    .img-fluid2{
+        width: 70%;
+        height: auto;
+    }
+
+</style>
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+<body style="background-color: white;">
+    <img src="images/topimgbg.png" alt="bg" class="topimg">
+    <img src="images/logo.svg" alt="Clipboard logo" class="logo">
+    <h1>A history of everything you copy</h1>
+    <p>Clipboard allows you to track and organize everything you copy. Instantly access your clipboard on all your devices.</p>
+    <div class="cta-buttons">
+    <button class="b1">Download for iOS</button>
+    <button class="b2">Download for Mac</button>
+    </div>
+
+    <h2 style="margin-top: 100px;">Keep track of your snippets</h2>
+    <p style="margin-top: 25px;">Clipboard instantly stores any item you copy in the cloud, meaning you can access your snippets immediately on all your devices. Our Mac and iOS apps will help you organize everything.</p>
+
+    <div class="features">
+    <div class="features_img">
+    <img src="images/image-computer.png" alt="image-computer">
+    </div>
+
+    <div class="features_content">
+    <h3>Quick Search</h3>
+    <p class="p1">Retrieve snippets by content, category, web address, application, and more.</p><br>
+
+    <h3>iCloud Sync</h3>
+    <p class="p1">Instantly saves and syncs snippets across all your devices.</p><br>
+
+    <h3>Complete History</h3>
+    <p class="p1">Access all your snippets from the first moment you started using the app.</p>
+    </div>
+    </div>
+    
+    <div class="devices">
+    <h2>Access Clipboard anywhere</h2>  
+    <p>Whether you’re on the go or at your computer, you can access all your Clipboard snippets in a few simple clicks.</p>
+    <img src="images/image-devices.png" alt="devices" style=" display: flex; margin: 60px auto; max-width: 820px;" class="img-fluid">
+    </div>
+
+    <div>
+        <h1>Supercharge your workflow</h1>
+        <p>We’ve got the tools to boost your productivity.</p>
+    </div><br><br>
+
+    <div class="tools">
+        <div class="tool1">
+            <img src="images/icon-blacklist.svg" alt="icon-blacklist" style="height: 32px; width: auto;">
+            <h3>Create blacklist</h3>
+            <p>Ensure sensitive informaation never makes it way to your clipboard by excluding certain sources.</p>
+        </div>
+
+        <div class="tool1">
+            <img src="images/icon-text.svg" alt="icon-text">
+            <h3>Plain text snippets</h3>
+            <p class="text-align:center">Remove unwanted formatting from copied text for a consistant look.</p>
+        </div>
+
+        <div class="tool1">
+            <img src="images/icon-preview.svg" alt="icon-preview">
+            <h3>Sneak preview</h3>
+            <p>Quick preview of all snippets on your Clipboard for easy access.</p>
+        </div>
+
+    </div>
+
+    <div class="partners">
+        <div>
+            <img src="images/logo-google.png" alt="google" class="partnercompany">
+        </div>
+
+        <div>
+            <img src="images/logo-ibm.png" alt="ibm" class="partnercompany">
+        </div>
+
+        <div>
+            <img src="images/logo-microsoft.png" alt="logo-microsoft" class="partnercompany">
+        </div>
+
+        <div>
+            <img src="images/logo-hp.png" alt="logo-hp" class="partnercompany">
+        </div>
+
+        <div>
+            <img src="images/logo-vector-graphics.png" alt="vector grphics" class="partnercompany">
+        </div>
+    </div>
+
+    <div class="cta-container">
+    <h2>Clipboard for iOS and Mac OS</h2>
+    <p>Available for free on the App Store. Download for Mac or iOS, sync with iCloud and you're ready to start adding to your clipboard.</p>
+    <div class="cta-buttons">
+    <button class="b1">Download for iOS</button>
+    <button class="b2">Download for Mac</button>
+    </div>
+    </div>
+
+    <div class="footer">
+        <img src="images/logo.svg" alt="clipboard logo" style="width: 55px;">
+
+        <ul class="link">
+            <li class="li">FAQs</li>
+            <li class="li">Contact us</li>
+            <li class="li">Privacy policy</li>
+            <li class="li">Press kit</li>
+            <li class="li">Install guide</li>
+        </ul>
+
+        <div class="socialicons">
+            <img src="images/icon-facebook.svg" alt="icon-facebook" width="25px" height="25px">
+            <img src="images/icon-twitter.svg" alt="icon-twitter" width="25px" height="23px">
+            <img src="images/icon-instagram.svg" alt="icon-instagram" width="25px" height="25px">
+        </div>
+
+    </div>
+
+</body>
+</html>
